@@ -1,0 +1,30 @@
+{% include "familia/index.html" %}
+{% block cuerpo %}
+{% load bootstrap5 %}
+
+<li> </li>
+<li> </li>
+<li> </li>
+    Listado de familiares:
+    {% url 'agregar' as agregar123_url %}
+    {% bootstrap_button "Agregar" button_class="btn-success" button_type="link" href=agregar123_url %}
+
+    {% url 'deportes' as deporte_url %}
+    {% bootstrap_button "Deporte" button_class="btn-success" button_type="link" href=deporte_url %}
+
+
+    {% if personas %}
+    {% for p in personas %}
+    <p >
+        <li> Identificador: {{p.id}} </li>
+        <li> Nombre: {{p.nombre}} </li>
+        <li> Fecha de nacimiento: {{p.fecha_nacimiento}} </li>
+        <li> Altura: {{p.altura}} </li>
+    </p>
+
+    {% endfor %}
+{% else %}
+    <p>No tienes familiares cargados</p>
+{% endif %}
+    
+{% endblock %}

@@ -1,0 +1,35 @@
+{% include "familia/index.html" %}
+
+{% block cuerpo %}
+{% load bootstrap5 %}
+
+<div class="container">
+   <div class="row">
+     <div class="col">
+      <h1>CARGAR UN FAMILIAR</h1>
+     </div>
+     </div>
+     <dov class="row">
+     <div class="col">
+      <form action="/familia/agregar/" method="post">
+         {% csrf_token %} 
+         {% bootstrap_form form%}
+         {% bootstrap_button "Guardar1" button_type="submit" button_class="btn-primary" %}
+
+      </form>
+
+      <body>
+
+        {% url 'index' as index_url %}
+        {% bootstrap_button "Inicio general" button_class="btn-success" button_type="link" href=index_url %}
+     
+
+      </body>
+    
+
+
+     </div>
+   </div>
+ </div>
+ 
+ {% endblock %}
